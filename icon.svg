@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="512"
+   height="512"
+   viewBox="0 0 135.46666 135.46667"
+   version="1.1"
+   id="svg8"
+   inkscape:version="1.4 (e7c3feb100, 2024-10-09)"
+   sodipodi:docname="icon.svg"
+   inkscape:export-filename="../../Desktop/256.png"
+   inkscape:export-xdpi="48"
+   inkscape:export-ydpi="48"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:dc="http://purl.org/dc/elements/1.1/">
+  <defs
+     id="defs2">
+    <rect
+       x="299.00515"
+       y="84.852813"
+       width="226.27417"
+       height="258.59905"
+       id="rect2" />
+  </defs>
+  <sodipodi:namedview
+     id="base"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageopacity="0.0"
+     inkscape:pageshadow="2"
+     inkscape:zoom="0.49497475"
+     inkscape:cx="547.50268"
+     inkscape:cy="205.06097"
+     inkscape:document-units="mm"
+     inkscape:current-layer="layer1"
+     showgrid="false"
+     inkscape:window-width="1920"
+     inkscape:window-height="1052"
+     inkscape:window-x="1920"
+     inkscape:window-y="0"
+     inkscape:window-maximized="1"
+     units="px"
+     inkscape:showpageshadow="2"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1" />
+  <metadata
+     id="metadata5">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title />
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1"
+     transform="translate(0,-161.53332)">
+    <rect
+       style="opacity:1;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:9.16992;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       id="rect857"
+       width="135.46666"
+       height="135.46666"
+       x="0"
+       y="161.53333"
+       sodipodi:insensitive="true" />
+    <path
+       style="fill:#000000;fill-opacity:1;stroke-width:0.666665"
+       id="path1"
+       sodipodi:type="arc"
+       sodipodi:cx="24.054258"
+       sodipodi:cy="185.05305"
+       sodipodi:rx="11.759859"
+       sodipodi:ry="11.759859"
+       sodipodi:start="0"
+       sodipodi:end="6.2818731"
+       sodipodi:arc-type="slice"
+       d="M 35.814117,185.05305 A 11.759859,11.759859 0 0 1 24.058116,196.81291 11.759859,11.759859 0 0 1 12.294402,185.06077 11.759859,11.759859 0 0 1 24.042685,173.2932 11.759859,11.759859 0 0 1 35.814107,185.03762 l -11.759849,0.0154 z" />
+    <rect
+       style="fill:#000000;fill-opacity:1;stroke-width:0.686045"
+       id="rect1"
+       width="31.537804"
+       height="16.13562"
+       x="36.835735"
+       y="-224.15681"
+       transform="scale(1,-1)" />
+    <rect
+       style="fill:#000000;fill-opacity:1;stroke-width:0.686045"
+       id="rect1-7"
+       width="31.537804"
+       height="16.13562"
+       x="93.936493"
+       y="270.09308" />
+    <rect
+       style="fill:#000000;fill-opacity:1;stroke-width:0.686045"
+       id="rect1-5"
+       width="31.537804"
+       height="16.13562"
+       x="65.386116"
+       y="239.05713" />
+    <text
+       xml:space="preserve"
+       transform="matrix(0.39587362,0,0,0.39587362,-56.552672,125.41725)"
+       id="text1"
+       style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:192px;font-family:'DejaVu Sans';-inkscape-font-specification:'DejaVu Sans Bold';text-align:center;writing-mode:lr-tb;direction:ltr;white-space:pre;shape-inside:url(#rect2);display:inline;fill:#1e7ed2;fill-opacity:1;stroke-width:1.88976"><tspan
+         x="356.45508"
+         y="254.72852"
+         id="tspan1">?</tspan></text>
+  </g>
+</svg>
