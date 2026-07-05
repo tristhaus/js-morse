@@ -71,10 +71,10 @@ const stringToMorseArray = input => {
 
     const result = trimmedDownCaseArray
         .map(char => [...morseObject[char], false, false, false])
-        .concat([false, false, false, false, false, false, false, false, false, false, false]) // implicit 3 `false` from previous char
         .flat()
 
-    return result
+    // implicit 3 `false` from previous char
+    return [false, false, false, false, false, false, false, false, false, false, false].concat(result)
 }
 
 export { stringToMorseArray }

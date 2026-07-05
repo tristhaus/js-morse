@@ -1,21 +1,43 @@
 import { useEffect, useState } from 'react'
 
-import { stringToMorseArray } from './logic/transformer'
+import './main.css'
 
-// proportion 1:3:7
+import { alphabetCharArray, createRandomString } from './logic/randomizer'
+import { stringToMorseArray } from './logic/transformer'
 
 const indicatorOn = '◉'
 const indicatorOff = ' '
 
-function App() {
-    const [input, setInput] = useState('')
-    const [dataIndex, setDataIndex] = useState(0)
-    const [data, setData] = useState([])
+const checkResultEnum = {
+    unknown: 0,
+    correct: 1,
+    incorrect: 2,
+}
 
-    const handleInputChange = e => {
-        setInput(e.target.value)
-        setData(stringToMorseArray(e.target.value))
+const classNameCorrect = 'correct'
+const classNameIncorrect = 'incorrect'
+
+function App() {
+    const [dataIndex, setDataIndex] = useState(0)
+    const [dataString, setDataString] = useState('')
+    const [data, setData] = useState([])
+    const [guess, setGuess] = useState('')
+    const [checkResult, setCheckResult] = useState(checkResultEnum.unknown)
+
+    const initNewGame = () => {
+        const localInput = createRandomString(alphabetCharArray, 3)
+        setDataString(localInput)
+        console.log(localInput)
+        const localData = stringToMorseArray(localInput)
+        setData(localData)
+        setCheckResult(checkResultEnum.unknown)
+        setGuess('')
+        setDataIndex(0)
     }
+
+    useEffect(() => {
+        initNewGame()
+    }, [])
 
     useEffect(() => {
         const intervalId = setInterval(() => {
@@ -26,23 +48,86 @@ function App() {
 
     const signal = data[dataIndex] ? indicatorOn : indicatorOff
 
+    const checkGuessForCorrectness = () => {
+        if (guess.trim() === dataString) {
+            setCheckResult(checkResultEnum.correct)
+        }
+        else {
+            setCheckResult(checkResultEnum.incorrect)
+        }
+    }
+
+    const handleGuessChanged = e => {
+        setGuess(e.target.value)
+    }
+
+    const handleGuessEnterKeyDown = () => {
+        checkGuessForCorrectness()
+    }
+
+    const handleCheckClicked = () => {
+        checkGuessForCorrectness()
+    }
+
+    const getResultItems = () => {
+        switch (checkResult) {
+            case checkResultEnum.unknown:
+                return ['', '']
+            case checkResultEnum.correct:
+                return ['Correct!', classNameCorrect]
+            case checkResultEnum.incorrect:
+                return [`Incorrect, was: "${dataString}"`, classNameIncorrect]
+        }
+    }
+
+    const [resultString, resultClass] = getResultItems()
+
+    const checkButtonDisabled = checkResult !== checkResultEnum.unknown || guess.length === 0
+
+    const handleResetClicked = () => {
+        initNewGame()
+    }
+
+    const resetButtonDisabled = checkResult === checkResultEnum.unknown
+
     return (
         <>
             <h2>JSMorse</h2>
             <table>
                 <tbody>
                     <tr>
-                        <td></td>
                         <td>
-                            <input id='input' type='text' value={input} onChange={e => handleInputChange(e)} />
+                            Signal:
+                        </td>
+                        <td>
+                            <span id='signalSpan'>{signal}</span>
+                        </td>
+                        <td>
                         </td>
                     </tr>
                     <tr>
                         <td>
-                            {dataIndex}
+                            Guess:
                         </td>
                         <td>
-                            {signal}
+                            <input id='guessInput' type='text' value={guess} onChange={e => handleGuessChanged(e)} onKeyDown={e => {
+                                if (e.key === 'Enter') {
+                                    handleGuessEnterKeyDown()
+                                }
+                            }} />
+                        </td>
+                        <td>
+                            <button id='checkButton' disabled={checkButtonDisabled} onClick={e => handleCheckClicked(e)}>Check</button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                        </td>
+                        <td>
+                            <span id='resultSpan' className={resultClass}>{resultString}</span>
+                        </td>
+                        <td>
+                            <button id='resetButton' disabled={resetButtonDisabled} onClick={e => handleResetClicked(e)}>Reset</button>
                         </td>
                     </tr>
                 </tbody>

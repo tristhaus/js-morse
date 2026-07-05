@@ -1,5 +1,6 @@
 import js from '@eslint/js'
 import globals from 'globals'
+import pluginCypress from 'eslint-plugin-cypress'
 import react from 'eslint-plugin-react'
 import reactHooks from 'eslint-plugin-react-hooks'
 import reactRefresh from 'eslint-plugin-react-refresh'
@@ -9,6 +10,7 @@ export default [
     { ignores: ['dist'] },
     {
         files: ['cypress/**/*.js'],
+        ...pluginCypress.configs.globals,
     },
     {
         files: ['**/*.{js,jsx}'],

@@ -19,30 +19,37 @@ describe('transformer logic unit tests', () => {
     test('string "a" returns expected', () => {
         const result = stringToMorseArray('a')
 
-        expect(result).toStrictEqual([true, false, true, true, true,
-            false, false, false, false, false, false, false, false, false, false, false, false, false, false])
+        expect(result).toStrictEqual([
+            false, false, false, false, false, false, false, false, false, false, false,
+            true, false, true, true, true,
+            false, false, false
+        ])
     })
 
     test('string "et" returns expected', () => {
         const result = stringToMorseArray('et')
 
-        expect(result).toStrictEqual([true,
+        expect(result).toStrictEqual([
+            false, false, false, false, false, false, false, false, false, false, false,
+            true,
             false, false, false,
             true, true, true,
-            false, false, false, false, false, false, false, false, false, false, false, false, false, false])
+            false, false, false
+        ])
     })
 
     test('string " cb a " returns expected', () => {
         const result = stringToMorseArray(' cb a ')
 
         expect(result).toStrictEqual([
+            false, false, false, false, false, false, false, false, false, false, false,
             true, true, true, false, true, false, true, true, true, false, true,
             false, false, false,
             true, true, true, false, true, false, true, false, true,
             false, false, false,
             false, false, false, false,
             true, false, true, true, true,
-            false, false, false,
-            false, false, false, false, false, false, false, false, false, false, false])
+            false, false, false
+        ])
     })
 })
