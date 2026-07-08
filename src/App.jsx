@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react'
+import { useCallback, useEffect, useState } from 'react'
 
 import './main.css'
 
@@ -18,26 +18,27 @@ const classNameCorrect = 'correct'
 const classNameIncorrect = 'incorrect'
 
 function App() {
+    const [secretLength, setSecretLength] = useState(3)
+    const [secretString, setSecretString] = useState('')
     const [dataIndex, setDataIndex] = useState(0)
-    const [dataString, setDataString] = useState('')
     const [data, setData] = useState([])
     const [guess, setGuess] = useState('')
     const [checkResult, setCheckResult] = useState(checkResultEnum.unknown)
 
-    const initNewGame = () => {
-        const localInput = createRandomString(alphabetCharArray, 3)
-        setDataString(localInput)
-        console.log(localInput)
-        const localData = stringToMorseArray(localInput)
+    const initNewGame = useCallback(() => {
+        const localSecretString = createRandomString(alphabetCharArray, secretLength)
+        setSecretString(localSecretString)
+        console.log(localSecretString)
+        const localData = stringToMorseArray(localSecretString)
         setData(localData)
         setCheckResult(checkResultEnum.unknown)
         setGuess('')
         setDataIndex(0)
-    }
+    }, [secretLength])
 
     useEffect(() => {
         initNewGame()
-    }, [])
+    }, [initNewGame])
 
     useEffect(() => {
         const intervalId = setInterval(() => {
@@ -48,8 +49,12 @@ function App() {
 
     const signal = data[dataIndex] ? indicatorOn : indicatorOff
 
+    const handleDataLengthChanged = event => {
+        setSecretLength(event.target.value)
+    }
+
     const checkGuessForCorrectness = () => {
-        if (guess.trim() === dataString) {
+        if (guess.trim() === secretString) {
             setCheckResult(checkResultEnum.correct)
         }
         else {
@@ -57,8 +62,8 @@ function App() {
         }
     }
 
-    const handleGuessChanged = e => {
-        setGuess(e.target.value)
+    const handleGuessChanged = event => {
+        setGuess(event.target.value)
     }
 
     const handleGuessEnterKeyDown = () => {
@@ -76,7 +81,7 @@ function App() {
             case checkResultEnum.correct:
                 return ['Correct!', classNameCorrect]
             case checkResultEnum.incorrect:
-                return [`Incorrect, was: "${dataString}"`, classNameIncorrect]
+                return [`Incorrect, was: "${secretString}"`, classNameIncorrect]
         }
     }
 
@@ -103,6 +108,7 @@ function App() {
                             <span id='signalSpan'>{signal}</span>
                         </td>
                         <td>
+                            <input id='signalLengthInput' value={secretLength} onChange={e => handleDataLengthChanged(e)} type='number' min='1' max='20' />
                         </td>
                     </tr>
                     <tr>
